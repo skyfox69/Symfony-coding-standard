@@ -38,6 +38,8 @@ use PHP_CodeSniffer\Files\File;
  * @author   Authors <Symfony-coding-standard@djoos.github.com>
  * @license  http://spdx.org/licenses/MIT MIT License
  * @link     https://github.com/djoos/Symfony-coding-standard
+ *
+ * @author    Frank Dueber <fdueber@cat-gmbh.de>  2017-2018
  */
 class BlankLineBeforeReturnSniff implements Sniff
 {
@@ -75,28 +77,20 @@ class BlankLineBeforeReturnSniff implements Sniff
         $tokens          = $phpcsFile->getTokens();
         $current         = $stackPtr;
         $previousLine    = $tokens[$stackPtr]['line'] - 1;
-        $prevLineTokens  = array();
+        $onlyWhiteSpaces = true;
 
         while ($current >= 0 && $tokens[$current]['line'] >= $previousLine) {
             if ($tokens[$current]['line'] == $previousLine
                 && $tokens[$current]['type'] !== 'T_WHITESPACE'
-                && $tokens[$current]['type'] !== 'T_COMMENT'
-                && $tokens[$current]['type'] !== 'T_DOC_COMMENT_CLOSE_TAG'
-                && $tokens[$current]['type'] !== 'T_DOC_COMMENT_WHITESPACE'
             ) {
-                $prevLineTokens[] = $tokens[$current]['type'];
+                $onlyWhiteSpaces = false;
             }
             $current--;
         }
 
-        if (isset($prevLineTokens[0])
-            && ($prevLineTokens[0] === 'T_OPEN_CURLY_BRACKET'
-            || $prevLineTokens[0] === 'T_COLON')
-        ) {
-            return;
-        } else if (count($prevLineTokens) > 0) {
+        if ($onlyWhiteSpaces) {
             $phpcsFile->addError(
-                'Missing blank line before return statement',
+                'Illegal blank line before return statement',
                 $stackPtr,
                 'Invalid'
             );

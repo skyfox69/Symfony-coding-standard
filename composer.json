@@ -3,7 +3,7 @@
     "type": "phpcodesniffer-standard",
     "description": "CodeSniffer ruleset for the Symfony 2+ coding standard",
     "keywords": ["Symfony2", "Symfony", "coding standard", "phpcs"],
-    "homepage": "https://github.com/djoos/Symfony2-coding-standard",
+    "homepage": "https://github.com/skyfox69/Symfony2-coding-standard",
     "license": "MIT",
     "authors": [
         {
@@ -12,7 +12,7 @@
         },
         {
             "name": "Community contributors",
-            "homepage": "https://github.com/djoos/Symfony-coding-standard/graphs/contributors"
+            "homepage": "https://github.com/skyfox69/Symfony-coding-standard/graphs/contributors"
         }
     ],
     "extra": {
