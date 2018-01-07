@@ -2,7 +2,7 @@
 
 # Symfony PHP CodeSniffer Coding Standard
 
-A coding standard to check against the [Symfony coding standards](http://symfony.com/doc/current/contributing/code/standards.html), originally shamelessly copied from the -disappeared- opensky/Symfony2-coding-standard repository. (ed by Sykfox69: And adapted to comapny rules)
+A coding standard to check against the [Symfony coding standards](http://symfony.com/doc/current/contributing/code/standards.html), originally shamelessly copied from the -disappeared- opensky/Symfony2-coding-standard repository. (ed by Sykfox69: And adapted to company rules)
 
 ## Installation
 
